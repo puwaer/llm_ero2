@@ -1,4 +1,4 @@
-cd continual-pretrain/sftlab/experiments/test_project
+cd document/llm_ero2/sftlab/experiments/test_project
 
 python run.py tanuki8b_lora_001.yaml
 python run.py train_full_sft.yaml.yaml
