@@ -20,7 +20,12 @@ conda deactivate
 実行コマンド
 cd document/sftlab/experiments/test_project
 
-python run.py tanuki8b_lora_001.yaml
-python run.py train_full_sft.yaml
 
+lora_sft_コマンド
+python run.py tanuki8b_lora_001.yaml
+
+
+full_sft_コマンド
+python run.py train_full_sft.yaml
+python run.py train_full_sft_cos.yaml
 
