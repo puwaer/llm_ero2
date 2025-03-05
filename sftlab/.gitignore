@@ -12,4 +12,4 @@ wandb/
 model/
 playground/*
 !playground/.gitkeep
-base_config/base_config.yaml
+

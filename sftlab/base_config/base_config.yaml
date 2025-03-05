@@ -1,0 +1,4 @@
+output_dir: /home/yuki/document/sftlab/output_dir
+hf_cache_dir: /home/yuki/document/sftlab/hf_cache_dir
+wandb:
+  entity: puwaer-personal
