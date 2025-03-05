@@ -17,7 +17,7 @@ data:
     split:
       #train: 20240806filtered[1000:]
       #eval: 20240806filtered[:1000]
-      train: 20240806filtered[100:200]
+      train: 20240806filtered[100:2000]
       eval: 20240806filtered[:100]
 
 #  - name: team-hatakeyama-phase2/OpenBookQA-Japanese
@@ -68,30 +68,33 @@ data:
 
 
 model:
+  name: ../../model/puwaer-1.8b_45
+  #name: /home/yuki/document/sftlab/output_dir/sftlab/experiments/test_model_llm-jp-3-1.8b
   #name: llm-jp/llm-jp-3-1.8b
-  name: llm-jp/llm-jp-3-440m
+  #name: llm-jp/llm-jp-3-440m
 
 
 tokenizer:
   name: null
+  #name: /home/yuki/document/sftlab/output_dir/sftlab/experiments/test_model_llm-jp-3-1.8b
   # name: team-hatakeyama-phase2/tanuki-tokenizer
 
 exp_params:
   num_train_epochs: 1
-  per_device_train_batch_size: 4
+  per_device_train_batch_size: 8
   per_device_eval_batch_size: 4
-  gradient_accumulation_steps: 4
+  gradient_accumulation_steps: 8
   save_strategy: steps
   save_steps: 1000
   logging_steps: 1
-  learning_rate: 5e-5
-  warmup_ratio: 0.1
-  lr_scheduler_type: cosine
+  learning_rate: 1e-5
+  warmup_ratio: 0.1                      #0.01
+  lr_scheduler_type: constant            #一定 constant, 余弦 cosine
   dtype: bf16
   use_fast: true
   gradient_checkpointing: true
   max_seq_length: 4096
-  use_peft: false                       #lora,full,   ture,false
+  use_peft: false                       #lora,ture,   full,false
   peft_target_model: llama-mini
   use_flash_attention_2: true
   peft_lora_r: 128
@@ -105,4 +108,4 @@ exp_params:
 
 
 wandb_project: test_sft
-wandb_task: test_model
+wandb_task: test_model_llm-jp-3-1.8b
